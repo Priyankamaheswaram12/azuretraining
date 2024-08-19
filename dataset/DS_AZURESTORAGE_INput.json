@@ -1,0 +1,38 @@
+{
+	"name": "DS_AZURESTORAGE_INput",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_AzureDatalakeStorage_priyanka19021992",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "users.json",
+				"fileSystem": "input"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "integer"
+				},
+				"age": {
+					"type": "integer"
+				},
+				"gender": {
+					"type": "string"
+				},
+				"designation": {
+					"type": "string"
+				},
+				"salary": {
+					"type": "integer"
+				}
+			}
+		}
+	}
+}
