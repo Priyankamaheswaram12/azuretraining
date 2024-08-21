@@ -1,5 +1,5 @@
 {
-	"name": "DelimitedText2",
+	"name": "DS_AZURESTORAGELAKE_PARAM",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_AzureDatalakeStorage_priyanka19021992",
