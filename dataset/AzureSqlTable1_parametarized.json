@@ -1,5 +1,5 @@
 {
-	"name": "AzureSqlTable1",
+	"name": "AzureSqlTable1_parametarized",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_AzureSqlDatabase_retaildb",
