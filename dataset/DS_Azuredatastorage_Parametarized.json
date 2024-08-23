@@ -19,7 +19,7 @@
 					"value": "@dataset().fileNameDS",
 					"type": "Expression"
 				},
-				"folderPath": "Customers",
+				"folderPath": "@dataset().fileNameDS",
 				"fileSystem": "retaildb"
 			},
 			"columnDelimiter": ",",
