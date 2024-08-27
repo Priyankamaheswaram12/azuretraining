@@ -20,8 +20,8 @@
 				}
 			},
 			{
-				"name": "Set variable1",
-				"type": "SetVariable",
+				"name": "ForEach1",
+				"type": "ForEach",
 				"dependsOn": [
 					{
 						"activity": "Web1",
@@ -30,22 +30,58 @@
 						]
 					}
 				],
-				"policy": {
-					"secureOutput": false,
-					"secureInput": false
-				},
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "Responsearray",
-					"value": {
+					"items": {
 						"value": "@json(activity('Web1').output.Response)",
 						"type": "Expression"
-					}
+					},
+					"activities": [
+						{
+							"name": "Stored procedure1_copy1",
+							"type": "SqlServerStoredProcedure",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"storedProcedureName": "[dbo].[Insert_Into_users_data_SP]",
+								"storedProcedureParameters": {
+									"Email": {
+										"value": null,
+										"type": "String"
+									},
+									"NAME": {
+										"value": {
+											"value": "@item().name",
+											"type": "Expression"
+										},
+										"type": "String"
+									}
+								}
+							},
+							"linkedServiceName": {
+								"referenceName": "LS_AzureSQLDatabase_retail_db",
+								"type": "LinkedServiceReference"
+							}
+						}
+					]
 				}
 			}
 		],
 		"variables": {
 			"Responsearray": {
+				"type": "Array"
+			},
+			"NameArray": {
+				"type": "Array"
+			},
+			"outputnamearray": {
 				"type": "Array"
 			}
 		},
