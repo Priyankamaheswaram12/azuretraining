@@ -140,7 +140,7 @@
 				"     broadcast: 'auto')~> join3",
 				"join3 select(mapColumn(",
 				"          employee_name,",
-				"          name",
+				"          {Customer name} = name",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select3",
